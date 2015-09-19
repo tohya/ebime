@@ -1,0 +1,14 @@
+<% provide(:title, 'プロジェクト新規作成') %>
+<p>new</p>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@project) do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    
+      <%= f.submit "Create project", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

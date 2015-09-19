@@ -1,0 +1,2 @@
+module JissekiHelper
+end

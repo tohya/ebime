@@ -1,0 +1,21 @@
+<% provide(:title, '勤怠新規作成') %>
+<p>new</p>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@kintai) do |f| %>
+
+      <%= f.label :user_id %>
+      <%= f.select :user_id, [["1", "1"], ["2", "2"]] %>
+
+      <%= f.label :date %>
+      <%= f.date_select :date %>
+
+      <%= f.label :time %>
+      <%= f.time_select :time %>
+
+    <%= f.submit "Create project", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
+

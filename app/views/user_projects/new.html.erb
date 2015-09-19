@@ -1,0 +1,16 @@
+<% provide(:title, 'ユーザプロジェクト割当新規作成') %>
+<p>new</p>
+
+<div class="row">
+  <div class="span6 offset3">
+
+  <%= form_for(@user_project) do |f| %>
+    <%= f.label :project_id %>
+    <%= f.select :project_id, [["1", "1"], ["2", "2"]] %>
+    <%= f.label :user_id %>
+    <%= f.select :user_id, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]] %>
+    <%= f.submit "Create project", class: "btn btn-large btn-primary" %>
+  <% end %>
+
+  </div>
+</div>

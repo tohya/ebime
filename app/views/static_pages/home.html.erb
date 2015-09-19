@@ -1,0 +1,48 @@
+<% if signed_in? %>
+
+  <div class="row">
+    <aside class="span4">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+
+      <section>
+        <%= render 'shared/stats' %>
+      </section>
+
+      <section>
+        <%= render 'shared/micropost_form' %>
+      </section>
+      <%= link_to "プロジェクト作成", {:controller => :projects, :action => :new}, :class => 'btn btn-primary' %>
+      <%= link_to "プロジェクト一覧", {:controller => :projects, :action => :index}, :class => 'btn btn-primary' %>
+      <br><br>
+      <%= link_to "勤怠作成", {:controller => :kintais, :action => :new}, :class => 'btn btn-primary' %>
+      <%= link_to "勤怠一覧", {:controller => :kintais, :action => :index}, :class => 'btn btn-primary' %>
+      <br><br>
+      <%= link_to "実績作成", {:controller => :jissekis, :action => :new}, :class => 'btn btn-primary' %>
+      <%= link_to "実績一覧", {:controller => :jissekis, :action => :index}, :class => 'btn btn-primary' %>
+    </aside>
+    <div class="span8">
+      <h3>Micropost feed</h3>
+      <%= render 'shared/feed' %>
+    </div>
+</div>
+
+<% else %>
+
+  <div class="center hero-unit">
+    <h1>Welcome to the Sample App</h1>
+
+    <h2>
+      This is the home page for the
+        <a href="http://railstutorial.jp/">Ruby on Rails Tutorial</a>
+      sample application.
+    </h2>
+
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+  </div>
+
+  <%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+
+<% end %>
+
