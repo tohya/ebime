@@ -1,4 +1,5 @@
 class UserProjectsController < ApplicationController
+  before_action :signed_in_user
 
   def index
     @user_projects = UserProject.paginate(page: params[:page])

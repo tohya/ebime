@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :signed_in_user
 
   def index
     @projects = Project.paginate(page: params[:page])
@@ -16,7 +17,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     if @project.save
       flash[:success] = "プロジェクトが作成されました。"
-      redirect_to @project
+      redirect_to :action => "index"
     else
       render 'new'
     end

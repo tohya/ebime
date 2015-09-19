@@ -1,5 +1,5 @@
 class KintaisController < ApplicationController
-  before_action :signed_in_user, only: [:create, :destroy]
+  before_action :signed_in_user
 
   def index
     @kintais = Kintai.paginate(page: params[:page])

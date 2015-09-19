@@ -1,5 +1,5 @@
 class JissekisController < ApplicationController
-  before_action :signed_in_user, only: [:create, :destroy]
+  before_action :signed_in_user
 
   def index
     @jissekis = Jisseki.paginate(page: params[:page])

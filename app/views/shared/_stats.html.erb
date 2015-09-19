@@ -1,4 +1,6 @@
+合計時間とか有給の残りとか出さないと<br>
 <% @user ||= current_user %>
+<% if false %>
 <div class="stats">
   <a href="<%= following_user_path(@user) %>">
     <strong id="following" class="stat">
@@ -13,4 +15,4 @@
     followers
   </a>
 </div>	
-
+<% end %>
