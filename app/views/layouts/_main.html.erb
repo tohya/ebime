@@ -5,21 +5,18 @@
     <section id="profile">
       <%= render 'shared/user_info' %>
     </section><!-- #profile -->
-    <section id="status">
-      <%= render 'shared/stats' %>
-    </section><!-- #status -->
     <section id="alert">
       ○月×日の勤怠と実績に相違があります。
       修正してください。
     </section><!-- #alert -->
-    <section id="menu">
-      <%= render 'shared/temp_form' %>
-    </section><!-- #menu -->
+    <section id="status">
+      <%= render 'shared/stats' %>
+    </section><!-- #status -->
   </aside>
   <article>
-    <section id="jisseki">
+    <section id="content">
       <%= yield %>
-    </section><!-- #jisseki -->
+    </section><!-- #main -->
   </article>
 <% else %>
   <%= yield %>

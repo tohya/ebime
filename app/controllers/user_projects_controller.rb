@@ -2,6 +2,7 @@ class UserProjectsController < ApplicationController
   before_action :signed_in_user
 
   def index
+    @followed_user = Relationship.where("followed_id = ?",@current_user.id)
     @user_projects = UserProject.paginate(page: params[:page])
   end
 

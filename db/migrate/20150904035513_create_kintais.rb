@@ -3,7 +3,8 @@ class CreateKintais < ActiveRecord::Migration
     create_table :kintais do |t|
       t.integer  :user_id
       t.datetime :date
-      t.time     :time
+      t.time     :start
+      t.time     :end
       t.integer  :approval_status
 
       t.timestamps

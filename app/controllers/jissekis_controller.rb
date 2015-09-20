@@ -2,7 +2,22 @@ class JissekisController < ApplicationController
   before_action :signed_in_user
 
   def index
-    @jissekis = Jisseki.paginate(page: params[:page])
+    @target_month = Time.now
+    @user_project = UserProject.where("user_id = ?",@current_user.id)
+    @jissekis = Array.new(@user_project.size)
+    @user_project.each_with_index do |u_p, i|
+      @jissekis[i] = Jisseki.where("user_project_id = ?",u_p.id)
+    end
+
+    #月の日数分配列を用意して0hで初期化
+    @sum_by_day = Array.new(@jissekis.size).map{ Array.new(@target_month.end_of_month.day+1,0) }    
+    @jissekis.each_with_index do |jisseki, project|
+      jisseki.each do |j|
+        time = j.time.hour + j.time.min/60.0
+        @sum_by_day[project][j.date.day] = time
+        @sum_by_day[project][0] += time
+      end
+    end
   end
 
   def show

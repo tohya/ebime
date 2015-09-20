@@ -1,11 +1,20 @@
 <% provide(:title, 'プロジェクト一覧') %>
-<p>index</p>
 
-<%= will_paginate %>
+<div id="projects">
 
-<ul class="projects">
-  <%= render @projects %>
-</ul>
+  <div class="index">
+    <p>一覧</p>
+    <%= will_paginate %>
+      <ul><%= render @projects %></ul>
+    <%= will_paginate %>
+  </div>
 
-<%= will_paginate %>
+  <div class="edit">
+    <p>更新</p>
+  </div>
 
+  <div class="craete">
+    <p>作成</p>
+  </div>
+
+</div>
