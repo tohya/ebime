@@ -2,26 +2,40 @@
 
 <div id="user-projects">
 
-  <div class="user">
+  <div class="user col-md-4">
     <p>ユーザ一覧</p>
-    <ul>
       <% @followed_user.each do |followed| %>
-      <li><%= User.find(followed.follower_id).name %></li>
+         <%= form_tag(assign_path, method: "get") do %>
+          <%= submit_tag User.find(followed.follower_id).name, name: "user", class: "btn btn-md btn-primary" %>
+        <% end %>
       <% end %>
-    </ul>
-
-    <%= will_paginate %>
-      <ul><%= render @user_projects %></ul>
-    <%= will_paginate %>
   </div>
 
-  <div class="project">
-    <p>割り当てプロジェクト</p>
-  </div>
+  <div class="project col-md-8">
+    <div class="assign row">
+      <p>割り当てプロジェクト</p>
+      <% if @assign_projects %>
+        <% @assign_projects.each do |u_p| %>
+          <%= form_for( @user_projects.find_by_project_id(u_p.id) ) do |f| %>
+            <%= f.hidden_field :id, value: u_p.id %>
+            <%= f.submit u_p.name, name: "delete_button", class: "btn btn-large btn-warning" %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
 
-  <div class="project">
-    <p>未割当</p>
+    <div class="yet row">
+      <p>未割当</p>
+      <% if @yet_projects %>
+        <% @yet_projects.each do |u_p| %>
+          <%= form_for( @user_project ) do |f| %>
+            <%= f.hidden_field :user_id, value: @user.id %>
+            <%= f.hidden_field :project_id, value: u_p.id %>
+            <%= f.submit u_p.name, name: "create_button", class: "btn btn-large btn-warning" %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 
 </div>
-

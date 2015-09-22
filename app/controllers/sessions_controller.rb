@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
         redirect_to jisseki_path        
       end
     else
-      flash.now[:error] = 'Invalid email/password combination'
+      flash.now[:error] = 'ログインに失敗しました。'
       render 'new'
     end
   end

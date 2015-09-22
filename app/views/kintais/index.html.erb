@@ -1,76 +1,75 @@
 <% provide(:title, '勤怠一覧') %>
 
 <div id="kintais">
-  <div class="month">
-  </div>
-  合計<%= @sum_by_day[0][:time] %>h
-  <div class="craete">
-    <div id="month-laquo">
-      <ul class="pagination"><li class="disabled">
-        <a href="#" aria-label="Previous"><div aria-hidden="true" class="aquo">&laquo;</div></a>
-      </li></ul>
+  <div class="row">
+    <div class="col-md-3">合計<%= @sum_by_day[0][:time] %>h</div> <!-- tmp -->
+    <div class="col-md-3"></div>
+    <div id="month" class="col-md-3">
+      <ul class="pagination">
+        <li class="disabled"><a href="#" aria-label="Previous"><div aria-hidden="true" class="aquo">&laquo;</div></a></li>
+        <li class="disabled"><a href="#" ><%= @target_month.month %>月</a></li>
+        <li class="disabled"><a href="#" aria-label="Previous"><div aria-hidden="true" class="aquo">&raquo;</div></a></li>
+      </ul>
     </div><!-- #month -->
-    <div id="month">
-      <%= @target_month.month %>月
-    </div><!-- #month -->
-    <div id="month-raquo">
-      <ul class="pagination"><li class="disabled">
-        <a href="#" aria-label="Previous"><div aria-hidden="true" class="aquo">&raquo;</div></a>
-      </li></ul>
-    </div><!-- #month -->
-    <div id="project">
-      プロジェクト1<br>
-      プロジェクト2<br>
-      プロジェクト3<br>
-      プロジェクト4<br>
-    </div><!-- #project -->
-    <div id="slider">
-      <div id="door">
-        <% (1..@target_month.end_of_month.day).each do |d| %>
-          <div class="date">
-            <div class="day">
-              <%= d %>日
-              <%= @sum_by_day[d][:time] %>h
-            </div><!-- day -->
-            <div class="time">
-              始業
-              <%= Time.at(@sum_by_day[d][:start]*60*60).strftime("%H:%M") %>
-            </div><!-- time -->
-            <div class="time-list">
-              <% (8..21).reverse_each do |t| %>
-                <div class="tlr"><button class="btn btn-info btn-xs" type="button">
-                  <%= t+0.5 %>
-                </button></div>
-                <div class="tll"><button class="btn btn-info btn-xs" type="button">
-                  <%= t+0.0 %>
-                </button></div>
-              <% end %>
-            </div><!-- time-list -->
-          </div><!-- date -->
-          <div class="date">
-            <div class="day">
-              <%= d %>日
-              <%= @sum_by_day[d][:time] %>h
-            </div><!-- day -->
-            <div class="time">
-              終業
-              <%= Time.at(@sum_by_day[d][:end]*60*60).strftime("%H:%M") %>
-            </div><!-- time -->
-            <div class="time-list">
-              <% (8..21).reverse_each do |t| %>
-                <div class="tlr"><button class="btn btn-info btn-xs" type="button">
-                  <%= t+0.5 %>
-                </button></div>
-                <div class="tll"><button class="btn btn-info btn-xs" type="button">
-                  <%= t+0.0 %>
-                </button></div>
-              <% end %>
-            </div><!-- time-list -->
-          </div><!-- date -->
-        <% end %>
-      </div><!-- #door -->
-    </div><!-- #slider -->
-  </div>
-
+    <div class="col-md-3"></div>
+  </div><!-- row -->
+  <div class="row">
+    <div class="create">
+      <div id="slider">
+        <div id="door">
+          <% (1..@target_month.end_of_month.day).each do |d| %>
+            <div class="date">
+              <div class="day">
+                <%= d %>日
+                <% if @sum_by_day[d][:time].present? %>
+                  <%= Time.at(@sum_by_day[d][:time]*60*60).strftime("%H:%M") %>
+                <% end %>
+              </div><!-- day -->
+              <div class="time">
+                始業
+                <% if @sum_by_day[d][:start].present? %>
+                  <%= Time.at(@sum_by_day[d][:start]*60*60).strftime("%H:%M") %>
+                <% end %>
+              </div><!-- time -->
+              <div class="time-list">
+                <% (8..21).reverse_each do |t| %>
+                  <div class="tlr"><button class="btn btn-info btn-xs" type="button">
+                    <%= t+0.5 %>
+                  </button></div>
+                  <div class="tll"><button class="btn btn-info btn-xs" type="button">
+                    <%= t+0.0 %>
+                  </button></div>
+                <% end %>
+              </div><!-- time-list -->
+            </div><!-- date -->
+            <div class="date">
+              <div class="day">
+                <%= d %>日
+                <% if @sum_by_day[d][:time].present? %>
+                  <%= Time.at(@sum_by_day[d][:time]*60*60).strftime("%H:%M") %>
+                <% end %>
+              </div><!-- day -->
+              <div class="time">
+                終業
+                <% if @sum_by_day[d][:end].present? %>
+                  <%= Time.at(@sum_by_day[d][:end]*60*60).strftime("%H:%M") %>
+                <% end %>
+              </div><!-- time -->
+              <div class="time-list">
+                <% (8..21).reverse_each do |t| %>
+                  <div class="tlr"><button class="btn btn-info btn-xs" type="button">
+                    <%= t+0.5 %>
+                  </button></div>
+                  <div class="tll"><button class="btn btn-info btn-xs" type="button">
+                    <%= t+0.0 %>
+                  </button></div>
+                <% end %>
+              </div><!-- time-list -->
+            </div><!-- date -->
+          <% end %>
+        </div><!-- #door -->
+      </div><!-- #slider -->
+    </div><!-- create -->
+  </div><!-- row -->
 </div>
 

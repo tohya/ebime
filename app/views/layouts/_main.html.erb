@@ -1,24 +1,21 @@
-<div id="main">
-
 <% if signed_in? %>
-  <aside>
-    <section id="profile">
-      <%= render 'shared/user_info' %>
-    </section><!-- #profile -->
-    <section id="alert">
-      ○月×日の勤怠と実績に相違があります。
-      修正してください。
-    </section><!-- #alert -->
-    <section id="status">
-      <%= render 'shared/stats' %>
-    </section><!-- #status -->
-  </aside>
-  <article>
-    <section id="content">
-      <%= yield %>
-    </section><!-- #main -->
-  </article>
+    <div class="col-md-3">
+      <section id="profile">
+        <%= render 'shared/user_info' %>
+      </section><!-- #profile -->
+      <section id="alert">
+        ○月×日の勤怠と実績に相違があります。
+        修正してください。<br><br><br><br>
+      </section><!-- #alert -->
+      <section id="status">
+        <%= render 'shared/stats' %>
+      </section><!-- #status -->
+    </div>
+    <div class="col-md-9">
+      <section id="content">
+        <%= yield %>
+      </section><!-- #content -->
+    </div>
 <% else %>
   <%= yield %>
 <% end %>
-</div><!-- #main -->

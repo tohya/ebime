@@ -8,12 +8,19 @@
   <%= render 'layouts/shim' %>
 </head>
 <body>
-  <%= render 'layouts/header' %>
-  <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>"><%= value %></div>
-  <% end %>
-  <%= render 'layouts/main' %>
-  <%= render 'layouts/footer' %>
-  <%= debug(params) if Rails.env.development? %>
-  </body>
+  <div class="row">
+    <%= render 'layouts/header' %>
+  </div><!-- row -->
+  <div class="row">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+  </div><!-- row -->
+  <div class="row" id="main">
+    <%= render 'layouts/main' %>
+  </div><!-- row -->
+  <div class="row">
+    <%= debug(params) if Rails.env.development? %>
+  </div><!-- row -->
+</body>
 </html>

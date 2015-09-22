@@ -7,21 +7,26 @@
   
   height: 100%;
   width:  100%;
+  padding: 20px;
   
   .index {
     height: 50%;
-    width:  50%;
-    float: left;
+    background-color: #AABFfA;
+    padding: 20px;
+    form {
+      margin: 2px;
+      float: left;
+    }
   }
   .edit {
     height: 50%;
-    width:  50%;
-    float: right;
+    padding: 20px;
+    background-color: #FBAAfA;
   }
   .create {
     height: 50%;
-    width:  100%;
-    clear: both;
+    padding: 20px;
+    background-color: #FBAA88;
   }
   
 }

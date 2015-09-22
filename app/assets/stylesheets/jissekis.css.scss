@@ -5,3 +5,242 @@
 select {
   height: 50px;
 }
+
+#jissekis {
+
+#month {
+  background-color: rgba(51,166,184,1); //ASAGI
+  margin: 10px 0 0 0;
+  ul {
+    margin: 0;
+  }
+}
+  
+/*
+.pagination {
+  margin: 0;
+  height: 100%;
+}
+disabled {
+  height: 100%;
+}
+a {
+  height: 100%;
+}
+
+.aquo {
+  height: 100%;
+}
+*/
+  
+.create {
+  padding: 20px 50px;
+  //height: 420px;
+  height: 100%;
+}
+  
+#slider {
+  //background-color: rgba(220,184,121,1); //SHIROTSURUBAMI
+  background-color: rgba(93,172,129,1); //WAKATAKE
+  height: 100%;
+  width: 100%;
+  //position: absolute;
+  //top: 10%;
+  //right: 0;
+  //bottom: 0;
+  //left: 10%;
+  //margin: auto;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+#door {
+  height: 100%;
+  width: 500%;
+  //min-width: 155rem;
+}
+
+.date {
+  width: 75px;
+  //min-width: 5rem;
+  //height: 100%;
+  //background-color: rgba(12,72,66,1); //ONANDO
+  float: left;
+  border: 1px solid black;
+}
+
+.day {
+  width: 100%;
+  height: 30px;
+  background-color: rgba(120,194,196,1); //BYAKUGUN
+  clear: both;
+}
+
+.time {
+  width: 100%;
+  height: 30px;
+  //background-color: rgba(208,90,110,1); //IMAYOH
+  background-color: rgba(225,107,140,1); //KOHBAI
+  clear: both;
+}
+
+.time-list{
+  width: 100%;
+  //height: 60%;
+  //background-color: rgba(220,184,121,1); //
+  clear: both;
+}
+
+.tll, .tlr {
+  //height: 9%;
+  width: 50%;
+}
+
+.tll {
+  //background-color: rgba(220,184,121,1); //
+  float: left;
+}
+
+.tlr {
+  //background-color: rgba(220,184,121,1); //
+  float: right;
+}
+
+.time-list button {
+  height: 20px;
+  width: 100%;
+}
+
+/*
+  
+#month-laquo, #month, #month-raquo {
+  background-color: rgba(51,166,184,1); //ASAGI
+  height: 5%;
+  width: 4%;
+  position: absolute;
+  margin: auto;
+}
+
+#month-laquo {
+  top: 0;
+  right: 20%;
+  bottom: 85%;
+  left: 0%;
+}
+
+#month {
+  top: 0;
+  right: 0;
+  bottom: 85%;
+  left: 10%;
+}
+
+#month-raquo {
+  top: 0;
+  right: 0;
+  bottom: 85%;
+  left: 40%;
+}
+
+#jisseki .pagination {
+  margin: 0;
+  height: 100%;
+}
+
+#jisseki .disabled {
+  height: 100%;
+}
+
+#jisseki a {
+  height: 100%;
+}
+
+#jisseki .aquo {
+  height: 100%;
+}
+
+#project {
+  background-color: rgba(220,184,121,1); //SHIROTSURUBAMI
+  height: 50%;
+  width: 10%;
+  position: absolute;
+  top: 30%;
+  right: 85%;
+  bottom: 0%;
+  left: 0%;
+  margin: auto;
+}
+
+#slider {
+  background-color: rgba(93,172,129,1); //WAKATAKE
+  height: 80%;
+  width: 80%;
+  position: absolute;
+  top: 10%;
+  right: 0;
+  bottom: 0;
+  left: 10%;
+  margin: auto;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+#door {
+  height: 100%;
+  width: 350%;
+  min-width: 155rem;
+}
+
+.date {
+  width: 4%;
+  min-width: 5rem;
+  height: 100%;
+  background-color: rgba(12,72,66,1); //ONANDO
+  float: left;
+  border: 1px solid black;
+}
+
+.day {
+  width: 100%;
+  height: 10%;
+  background-color: rgba(120,194,196,1); //BYAKUGUN
+  clear: both;
+}
+
+.time {
+  width: 100%;
+  height: 10%;
+  //background-color: rgba(208,90,110,1); //IMAYOH
+  background-color: rgba(225,107,140,1); //KOHBAI
+  clear: both;
+}
+
+.time-list{
+  width: 100%;
+  height: 60%;
+  //background-color: rgba(220,184,121,1); //
+  clear: both;
+}
+
+.tll, .tlr {
+  height: 9%;
+  width: 50%;
+}
+
+.tll {
+  //background-color: rgba(220,184,121,1); //
+  float: left;
+}
+
+.tlr {
+  //background-color: rgba(220,184,121,1); //
+  float: right;
+}
+
+.time-list button {
+  width: 100%;
+}
+  
+*/
+
+} //#jissekis

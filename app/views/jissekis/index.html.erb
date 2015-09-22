@@ -1,58 +1,52 @@
 <% provide(:title, '実績一覧') %>
 
 <div id="jissekis">
-  <div class="month">
-  </div>
-  <% @sum_by_day.each do |sum| %>
-    合計<%= sum[0] %>h<br>
-  <% end %>
-  <div class="craete">
-    <div id="month-laquo">
-      <ul class="pagination"><li class="disabled">
-        <a href="#" aria-label="Previous"><div aria-hidden="true" class="aquo">&laquo;</div></a>
-      </li></ul>
+  <div class="row">
+    <div class="col-md-3"><% @sum_by_day.each do |sum| %>合計<%= sum[0] %>h<br><% end %></div> <!-- tmp -->
+    <div class="col-md-3"></div>
+    <div id="month" class="col-md-3">
+      <ul class="pagination">
+        <li class="disabled"><a href="#" aria-label="Previous"><div aria-hidden="true" class="aquo">&laquo;</div></a></li>
+        <li class="disabled"><a href="#" ><%= @target_month.month %>月</a></li>
+        <li class="disabled"><a href="#" aria-label="Previous"><div aria-hidden="true" class="aquo">&raquo;</div></a></li>
+      </ul>
     </div><!-- #month -->
-    <div id="month">
-      <%= @target_month.month %>月
-    </div><!-- #month -->
-    <div id="month-raquo">
-      <ul class="pagination"><li class="disabled">
-        <a href="#" aria-label="Previous"><div aria-hidden="true" class="aquo">&raquo;</div></a>
-      </li></ul>
-    </div><!-- #month -->
-    <div id="project">
-      プロジェクト1<br>
-      プロジェクト2<br>
-      プロジェクト3<br>
-      プロジェクト4<br>
-    </div><!-- #project -->
-    <div id="slider">
-      <div id="door">
-        <% (1..@target_month.end_of_month.day).each do |d| %>
-        <% (0...@sum_by_day.size).each do |p| %>
-          <div class="date">
-            <div class="day">
-              <%= d %>日
-            </div><!-- day -->
-            <div class="time">
-              <%= @user_project[p].project.name %>
-              <%= @sum_by_day[p][d] %>h
-            </div><!-- time -->
-            <div class="time-list">
-              <% (1..14).reverse_each do |t| %>
-                <div class="tlr"><button class="btn btn-info btn-xs" type="button">
-                  <%= t+0.5 %>
-                </button></div>
-                <div class="tll"><button class="btn btn-info btn-xs" type="button">
-                  <%= t+0.0 %>
-                </button></div>
-              <% end %>
-            </div><!-- time-list -->
-          </div><!-- date -->
-        <% end %>
-        <% end %>
-      </div><!-- #door -->
-    </div><!-- #slider -->
-  </div>
+    <div class="col-md-3"></div>
+  </div><!-- row -->
+  <div class="row">
+  <div class="create">
+    <% if @sum_by_day.size > 0 %>
+      <div id="slider">
+        <div id="door">
+          <% (1..@target_month.end_of_month.day).each do |d| %>
+            <% (0...@sum_by_day.size).each do |p| %>
+              <div class="date">
+                <div class="day">
+                  <%= d %>日
+                </div><!-- day -->
+                <div class="time">
+                  <%= @user_project[p].project.name %>
+                  <%= @sum_by_day[p][d] %>h
+                </div><!-- time -->
+                <div class="time-list">
+                  <% (1..14).reverse_each do |t| %>
+                    <div class="tlr"><button class="btn btn-info btn-xs" type="button">
+                      <%= t+0.5 %>
+                    </button></div>
+                    <div class="tll"><button class="btn btn-info btn-xs" type="button">
+                      <%= t+0.0 %>
+                    </button></div>
+                  <% end %>
+                </div><!-- time-list -->
+              </div><!-- date -->
+            <% end %>
+          <% end %>
+        </div><!-- #door -->
+      </div><!-- #slider -->
+    <% else %>
+      プロジェクトが割り当てられていません。
+    <% end %>
+  </div><!-- create -->
+  </div><!-- row -->
 
 </div>

@@ -2,10 +2,19 @@
 html, body {
   height: 100%;
   width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.row {
+  margin: 0;  
 }
 
 header {
-  height: 40px;
+  height: 50px;
+  position: relative;
+  z-index: 3;
+  box-shadow: 0 10px 6px -6px #777;
 }
 
 .navbar {
@@ -18,54 +27,122 @@ header {
   margin-bottom: 0;
 }
 
+.navbar-inner .container {
+  height: 100%;
+}
+
+#logo {
+  line-height: 30px;
+}
+
+nav {
+  //height: 100%;
+}
+
+.nav {
+  //height: 100%;
+}
+
+.nav li {
+  //height: 100%;
+  //line-height: 5;
+  //font-size: 18px;
+  //padding: 10px;
+}
+
+//bootstrap nav 書き換え
+.navbar-inverse .navbar-inner {
+  background-color: rgba(54,86,60,1); //CHITOSEMIDORI #36563C
+  background-image: -moz-linear-gradient(top, #36563C, #36563C);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#36563C), to(#36563C));
+  background-image: -webkit-linear-gradient(top, #36563C, #36563C);
+  background-image: -o-linear-gradient(top, #36563C, #36563C);
+  background-image: linear-gradient(to bottom, #36563C, #36563C);
+  background-repeat: repeat-x;
+  border-color: #36563C;
+}
+.navbar-inverse .brand,
+.navbar-inverse .nav > li > a {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.navbar-inverse .brand:hover,
+.navbar-inverse .nav > li > a:hover,
+.navbar-inverse .brand:focus,
+.navbar-inverse .nav > li > a:focus {
+  color: #aaaaaa;
+}
+.navbar-inverse .brand {
+  color: #ffffff;
+}
+
+.alert {
+  margin: 0;
+}
+
 #main {
-  width: 100%;
-  height: 90%;
-  background-color: #234576;
-}
-
-#profile {
-  width: 100%;
-  height: 10%;
-  background-color: #66DD11;
-}
-
-#status {
-  width: 100%;
-  height: 20%;
-  background-color: #CC8822;
-}
-
-#alert {
-  width: 100%;
-  height: 20%;
-  background-color: #5555FF;
-  color: red;
-}
-
-#menu {
-  width: 100%;
-  height: 50%;
-  background-color: #FF8888;
+  position: relative;
+  background-color: rgba(144,180,75,1); //hiwamoegi
+  z-index: 2;
 }
 
 aside {
-  height: 100%;
-  width: 25%;
+  //height: 100%;
+  //width: 25%;
   float: left;
-  background-color: #763499;
+  //background-color: #763499;
+  position: relative;
+  z-index: 2;
+}
+
+//bootstrapのcolのpadding変更
+[class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+
+#profile {
+  //width: 100%;
+  //height: 10%;
+  background-color: rgba(233,205,76,1); //KARIYASU
+  position: relative;
+  z-index: 3;
+  box-shadow: 0 10px 6px -6px #777, 12px 0 6px -6px #777;
+  padding: 20px;
+}
+
+#alert {
+  //width: 100%;
+  //height: 20%;
+  background-color: rgba(51,166,184,1); //ASAGI
+  color: red;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 10px 6px -6px #777, 10px 0 6px -6px #777;
+  padding: 20px;
+}
+
+#status {
+  //width: 100%;
+  //height: 20%;
+  background-color: rgba(155,144,194,1); //OUCHI
+  position: relative;
+  z-index: 1;
+  padding: 20px;
 }
 
 article {
-  height: 100%;
-  width: 75%;
+  //height: 100%;
+  //width: 75%;
   float: right;
-  background-color: #AA4590;
+  //background-color: #AA4590;
+  position: relative;
+  z-index: 1;
 }
 
 footer {
-  height: 20px;
-  background-color: black;
+  height: 40px;
+  background-color: rgba(54,86,60,1); //CHITOSEMIDORI
   color: gray;
   clear: both;
 }

@@ -7,16 +7,26 @@
   
   height: 100%;
   width:  100%;
-  
+  padding: 20px;
+
   .user {
     height: 100%;
-    width:  50%;
-    float: left;
+    background-color: #AABFfA;
+    padding: 20px;
   }
   .project {
-    height: 50%;
-    width:  50%;
-    float: right;
+    height: 100%;
+    //background-color: #783589;
+    .assign {
+      height: 50%;
+      background-color: #FBAAfA;
+      padding: 20px;
+    }
+    .yet {
+      height: 50%;
+      background-color: #FBAA88;
+      padding: 20px;
+    }
   }
   
 }
