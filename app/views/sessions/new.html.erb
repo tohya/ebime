@@ -1,20 +1,20 @@
-<% provide(:title, "Sign in") %>
-<h1>Sign in</h1>
+<% provide(:title, "log in") %>
+<h1>ログイン</h1>
 
 <div class="row">
   <div class="span6 offset3">
     <%= form_for(:session, url: sessions_path) do |f| %>
 
-      <%= f.label :email %>
+      <%= f.label :id %>
       <%= f.text_field :email %>
 
       <%= f.label :password %>
       <%= f.password_field :password %> 
 
-      <%= f.submit "Sign in ", class: "btn btn-large btn-primary" %>
+      <%= f.submit "ログイン(勤怠)", { name: "kintai_button",  class: "btn btn-large btn-primary" } %>
+      <%= f.submit "ログイン(実績)", { name: "jisseki_button", class: "btn btn-large btn-primary" } %>
     <% end %>
 
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
   </div>
 </div>
 

@@ -1,15 +1,22 @@
 class SessionsController < ApplicationController
 
   def new
+    if signed_in?
+      redirect_back_or jisseki_path
+    end
   end
 
-  def create
+  def create    
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       sign_in user
-      redirect_back_or user
+      if params[:kintai_button]
+        redirect_to kintai_path
+      elsif params[:jisseki_button]
+        redirect_to jisseki_path        
+      end
     else
-      flash.now[:error] = 'Invalid email/password combination'
+      flash.now[:error] = 'ログインに失敗しました。'
       render 'new'
     end
   end

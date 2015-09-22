@@ -12,6 +12,7 @@ $grayMediumLight: #eaeaea;
 
 /* universal */
 
+/*
 html {
   overflow-y: scroll;
 }
@@ -34,9 +35,11 @@ textarea {
     margin-bottom: 10px;
   }
 }
+*/
 
 /* typography */
 
+/*
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
@@ -61,6 +64,7 @@ p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
+*/
 
 /* header */
 
@@ -82,6 +86,7 @@ p {
 
 /* footer */
 
+/*
 footer {
   margin-top: 45px;
   padding-top: 5px;
@@ -105,9 +110,11 @@ footer {
     }
   }
 }
+*/
 
 /* miscellaneous */
 
+/*
 .debug_dump {
   clear: both;
   float: left;
@@ -115,9 +122,11 @@ footer {
   margin-top: 45px;
   @include box_sizing;
 }
+*/
 
 /* sidebar */
 
+/*
 aside {
   section {
     padding: 10px 0;
@@ -176,9 +185,11 @@ aside {
   float: left;
   margin-right: 10px;
 }
+*/
 
 /* forms */
 
+/*
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
@@ -202,9 +213,11 @@ input {
   @extend .control-group;
   @extend .error;
 }
+*/
 
 /* users index */
 
+/*
 .users {
   list-style: none;
   margin: 0;
@@ -217,9 +230,11 @@ input {
     }
   }
 }
+*/
 
 /* microposts */
 
+/*
 .microposts {
   list-style: none;
   margin: 10px 0 0 0;
@@ -245,3 +260,4 @@ aside {
     margin-bottom: 5px;
   }
 }
+*/

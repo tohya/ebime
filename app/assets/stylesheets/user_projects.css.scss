@@ -3,30 +3,30 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-#projects {
+#user-projects {
   
   height: 100%;
   width:  100%;
   padding: 20px;
-  
-  .index {
-    height: 50%;
+
+  .user {
+    height: 100%;
     background-color: #AABFfA;
     padding: 20px;
-    form {
-      margin: 2px;
-      float: left;
+  }
+  .project {
+    height: 100%;
+    //background-color: #783589;
+    .assign {
+      height: 50%;
+      background-color: #FBAAfA;
+      padding: 20px;
     }
-  }
-  .edit {
-    height: 50%;
-    padding: 20px;
-    background-color: #FBAAfA;
-  }
-  .create {
-    height: 50%;
-    padding: 20px;
-    background-color: #FBAA88;
+    .yet {
+      height: 50%;
+      background-color: #FBAA88;
+      padding: 20px;
+    }
   }
   
 }

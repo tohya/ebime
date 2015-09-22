@@ -1,11 +1,34 @@
 <% provide(:title, 'プロジェクト一覧') %>
-<p>index</p>
+<div id="projects">
+  
+  <div class="index col-md-6">
+    <p>一覧</p>
+    <% @projects.each do |p| %>
+      <%= form_tag(project_path, method: "get") do %>
+        <%= submit_tag p.name, name: "project", class: "btn btn-md btn-primary" %>
+      <% end %>
+    <% end %>
+  </div>
 
-<%= will_paginate %>
+  <div class="edit col-md-6">
+    <p>更新</p>
+    <% if @project %>
+      <%= form_for(@project) do |f| %>
+        <%= f.hidden_field :id, value: @project.id %>
+        <%= f.text_field :name %><br>
+        <%= f.submit "更新", name: "update_button", class: "btn btn-large btn-primary" %>
+        <%= f.submit "削除", name: "delete_button", class: "btn btn-large btn-warning" %>
+      <% end %>
+    <% end %>
+  </div>
 
-<ul class="projects">
-  <%= render @projects %>
-</ul>
+  <div class="create col-md-12">
+    <p>作成</p>
+      <%= form_for(@new_project) do |f| %>
+        <%= f.label "プロジェクト名" %>
+        <%= f.text_field :name %><br>
+        <%= f.submit "新規作成", class: "btn btn-large btn-primary" %>
+      <% end %>    
+  </div>
 
-<%= will_paginate %>
-
+</div>

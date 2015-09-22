@@ -27,7 +27,8 @@ ActiveRecord::Schema.define(version: 20150904115318) do
   create_table "kintais", force: true do |t|
     t.integer  "user_id"
     t.datetime "date"
-    t.time     "time"
+    t.time     "start"
+    t.time     "end"
     t.integer  "approval_status"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -75,6 +76,7 @@ ActiveRecord::Schema.define(version: 20150904115318) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
+    t.string   "role"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"

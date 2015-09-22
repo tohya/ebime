@@ -1,0 +1,23 @@
+        <ul class="nav navbar-nav navbar-right">
+          <% if signed_in? %>
+            <li><%= link_to "勤怠管理", kintai_path %></li>
+            <li><%= link_to "実績投入", jisseki_path %></li>
+            <% if current_user.role != "1" %>
+              <li id="fat-menu" class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  実績管理 <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "プロジェクト管理", project_path %></li>
+                  <li role="separator" class="divider"></li>
+                  <li><%= link_to "要員登録", assign_path %></li>
+                  <li role="separator" class="divider"></li>
+                  <li><%= link_to "#承認", root_path %></li>
+                </ul>
+              </li>
+            <% end %>
+            <li><%= link_to "ログアウト", signout_path, method: "delete" %></li>
+          <% else %>
+            <li><%= link_to "ログイン", signin_path %></li>
+          <% end %>
+        </ul>
