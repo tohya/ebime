@@ -13,10 +13,6 @@
     height: 50%;
     background-color: #AABFfA;
     padding: 20px;
-    form {
-      margin: 2px;
-      float: left;
-    }
   }
   .edit {
     height: 50%;
@@ -28,5 +24,8 @@
     padding: 20px;
     background-color: #FBAA88;
   }
-  
+  form {
+    margin: 2px;
+    float: left;
+  }  
 }

@@ -14,7 +14,11 @@ class UserProjectsController < ApplicationController
         @assign_projects << Project.find(u_p.project_id)
         assign_project_ids << Project.find(u_p.project_id).id
       end
-      @yet_projects = Project.where("id NOT IN (?)", assign_project_ids)
+      if assign_project_ids.empty?
+        @yet_projects = Project.all
+      else
+        @yet_projects = Project.where("id NOT IN (?)", assign_project_ids)
+      end
     end
     #プロジェクト割り当て用
     @user_project = UserProject.new
