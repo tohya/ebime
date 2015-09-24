@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.1.5'
 #ruby-gemset=railstutorial_rails_4_0
 
-gem 'rails', '4.0.5'
+gem 'rails', '4.1.0'
 #gem 'bootstrap-sass', '2.3.2.0'
 gem 'bootstrap-sass'
 gem 'sprockets', '2.11.0'
