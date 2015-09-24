@@ -3,6 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  date = $('#jissekis .date').length;
-  width = $('#jissekis .date').outerWidth(true);
-  $('#jissekis #door').width(date * width);
+  size = $('#jissekis .date').length;
+  width = $('#jissekis .date').outerWidth();
+  $('#jissekis #door').width(size * width);

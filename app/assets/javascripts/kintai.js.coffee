@@ -3,6 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  date = $('#kintais .date').length;
-  width = $('#kintais .date').outerWidth(true);
-  $('#kintais #door').width(date * width);
+  size = $('#kintais .date').length;
+  width = $('#kintais .date').outerWidth();
+  $('#kintais #door').width(size * width);
