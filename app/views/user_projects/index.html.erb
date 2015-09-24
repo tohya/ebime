@@ -31,7 +31,7 @@
           <%= form_for( @user_project ) do |f| %>
             <%= f.hidden_field :user_id, value: @user.id %>
             <%= f.hidden_field :project_id, value: u_p.id %>
-            <%= f.submit u_p.name, name: "create_button", class: "btn btn-large btn-warning" %>
+            <%= f.submit u_p.name, name: "create_button", class: "btn btn-large btn-info" %>
           <% end %>
         <% end %>
       <% end %>
