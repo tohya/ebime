@@ -108,6 +108,7 @@ aside {
   position: relative;
   z-index: 3;
   box-shadow: 0 10px 6px -6px #777, 12px 0 6px -6px #777;
+  height: 200px;
   padding: 20px;
 }
 
@@ -119,6 +120,7 @@ aside {
   position: relative;
   z-index: 2;
   box-shadow: 0 10px 6px -6px #777, 10px 0 6px -6px #777;
+  height: 200px;
   padding: 20px;
 }
 
@@ -128,6 +130,7 @@ aside {
   background-color: rgba(155,144,194,1); //OUCHI
   position: relative;
   z-index: 1;
+  height: 200px;
   padding: 20px;
 }
 

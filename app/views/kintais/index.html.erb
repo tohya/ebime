@@ -1,9 +1,9 @@
-<% provide(:title, '勤怠一覧') %>
+<% provide(:title, '勤怠管理') %>
 
 <div id="kintais">
   <div class="row">
-    <div class="col-md-3">合計<%= @sum_by_day[0][:time] %>h</div> <!-- tmp -->
     <div class="col-md-3"></div>
+    <div class="col-md-3">勤怠管理</div>
     <div id="month" class="col-md-3">
       <ul class="pagination">
         <li class="disabled"><a href="#" aria-label="Previous"><div aria-hidden="true" class="aquo">&laquo;</div></a></li>
@@ -11,7 +11,7 @@
         <li class="disabled"><a href="#" aria-label="Previous"><div aria-hidden="true" class="aquo">&raquo;</div></a></li>
       </ul>
     </div><!-- #month -->
-    <div class="col-md-3"></div>
+    <div class="col-md-3">合計<%= @sum_by_day[0][:time] %>h</div> <!-- tmp -->
   </div><!-- row -->
   <div class="row">
     <div class="create">

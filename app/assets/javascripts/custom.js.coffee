@@ -1,6 +1,3 @@
-$ ->
-  $('.time-list button').click ->
-    alert("Hello World!")
 
 $ ->
   speed = 200;
