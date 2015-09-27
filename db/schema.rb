@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20150904115318) do
   create_table "jissekis", force: true do |t|
     t.integer  "user_project_id"
     t.datetime "date"
-    t.time     "time"
+    t.decimal  "time"
     t.integer  "approval_status"
     t.datetime "created_at"
     t.datetime "updated_at"

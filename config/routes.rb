@@ -10,6 +10,7 @@ Ebime::Application.routes.draw do
   match '/assign',  to: 'user_projects#index',  via: 'get',    as: 'assign'
   resources :user_projects,      only: [:create, :update]  
   match '/jisseki', to: 'jissekis#index',       via: 'get',    as: 'jisseki'
+  match '/jisseki', to: 'jissekis#index',       via: 'post'
   # match '/approval', to: 's#index',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete', as: 'signout'
   #resources :users

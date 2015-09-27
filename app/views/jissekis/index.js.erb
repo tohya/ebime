@@ -1,0 +1,3 @@
+$("#flash_notice").html("<%= escape_javascript(flash[:notice])%>");
+$("#flash_notice").show(300);
+$("#door").html("<%= escape_javascript( render(:partial => "jisseki") ) %>");

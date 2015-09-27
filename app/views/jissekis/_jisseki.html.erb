@@ -1,6 +1,27 @@
-<li>
-  <%= link_to jisseki.id, jisseki %>
-  <%= link_to jisseki.user_project_id, jisseki %>
-  <%= link_to jisseki.date, jisseki %>
-  <%= link_to jisseki.time, jisseki %>
-</li>
+<% (1..@target_month.end_of_month.day).each do |d| %>
+  <% (0...@sum_by_day.size).each do |p| %>
+    <div class="date">
+      <div class="day"><%= d %>日</div><!-- day -->
+      <div class="project"><%= @user_project[p].project.name %></div><!-- time -->
+      <div class="time"><%= @sum_by_day[p][d] %>h</div><!-- time -->
+      <div class="time-list">
+        <% (0..14).reverse_each do |t| %>
+          <% if (t+0.5) == @sum_by_day[p][d] %>
+        <div class="tll btn btn-default btn-xs"><%= link_to t+0.0, remote: true, method: :post, month: @target_month.month, day: d, project: @user_project[p].project.name, time: t+0.0 %></div>
+            <div class="tlr btn btn-warning btn-xs"><%= link_to t+0.5, remote: true, method: :post, month: @target_month.month, day: d, project: @user_project[p].project.name, time: t+0.5 %></div>
+          <% elsif t == @sum_by_day[p][d] %>
+            <div class="tll btn btn-warning btn-xs"><%= link_to t+0.0, remote: true, method: :post, month: @target_month.month, day: d, project: @user_project[p].project.name, time: t+0.0 %></div>
+            <div class="tlr btn btn-default btn-xs"><%= link_to t+0.5, remote: true, method: :post, month: @target_month.month, day: d, project: @user_project[p].project.name, time: t+0.5 %></div>
+          <% else %>
+            <div class="tll btn btn-default btn-xs"><%= link_to t+0.0, remote: true, method: :post, month: @target_month.month, day: d, project: @user_project[p].project.name, time: t+0.0 %></div>
+            <div class="tlr btn btn-default btn-xs"><%= link_to t+0.5, remote: true, method: :post, month: @target_month.month, day: d, project: @user_project[p].project.name, time: t+0.5 %></div>
+            <% if false %>
+              <div class="tll"><button class="btn btn-info btn-xs" type="button"><%= t+0.0 %></button></div>
+              <div class="tlr"><button class="btn btn-info btn-xs" type="button"><%= t+0.5 %></button></div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div><!-- time-list -->
+    </div><!-- date -->
+  <% end %>
+<% end %>

@@ -7,7 +7,7 @@
     <div id="month" class="col-md-3">
       <ul class="pagination">
         <li class="disabled"><a href="#" aria-label="Previous"><div aria-hidden="true" class="aquo">&laquo;</div></a></li>
-        <li class="disabled"><a href="#" ><%= @target_month.month %>月</a></li>
+        <li class="disabled"><a href="#" id="target-month"><%= @target_month.month %>月</a></li>
         <li class="disabled"><a href="#" aria-label="Previous"><div aria-hidden="true" class="aquo">&raquo;</div></a></li>
       </ul>
     </div><!-- #month -->
@@ -17,31 +17,11 @@
   <div class="create">
     <% if @sum_by_day.size > 0 %>
       <div id="slider">
-        <div id="door">
-          <% (1..@target_month.end_of_month.day).each do |d| %>
-            <% (0...@sum_by_day.size).each do |p| %>
-              <div class="date">
-                <div class="day">
-                  <%= d %>日
-                </div><!-- day -->
-                <div class="time">
-                  <%= @user_project[p].project.name %>
-                  <%= @sum_by_day[p][d] %>h
-                </div><!-- time -->
-                <div class="time-list">
-                  <% (1..14).reverse_each do |t| %>
-                    <div class="tlr"><button class="btn btn-info btn-xs" type="button">
-                      <%= t+0.5 %>
-                    </button></div>
-                    <div class="tll"><button class="btn btn-info btn-xs" type="button">
-                      <%= t+0.0 %>
-                    </button></div>
-                  <% end %>
-                </div><!-- time-list -->
-              </div><!-- date -->
-            <% end %>
-          <% end %>
-        </div><!-- #door -->
+        <%= form_tag controller: "jissekis", action: "index", method: :post, remote: true do %>
+          <div id="door">
+            <%= render partial: 'jisseki' %>
+          </div><!-- #door -->
+        <% end %>
       </div><!-- #slider -->
     <% else %>
       プロジェクトが割り当てられていません。

@@ -1,3 +1,21 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#login {
+  height: 400px;
+  padding: 30px;
+  form {
+    padding: 20px;
+    .login-label {
+      margin: 30px;
+      float: left;
+    }
+    .login-button {
+      margin: 30px;
+      float: left;
+    }
+  }
+}
+
+

@@ -3,7 +3,7 @@ class CreateJissekis < ActiveRecord::Migration
     create_table :jissekis do |t|
       t.integer  :user_project_id
       t.datetime :date
-      t.time     :time
+      t.decimal  :time
       t.integer  :approval_status
 
       t.timestamps
