@@ -1,9 +1,15 @@
-<% provide(:title, 'ユーザプロジェクト一覧') %>
-
+<% provide(:title, '要員登録') %>
 <div id="user-projects">
 
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="title col-md-3"><p>要員登録</p></div>
+    <div class="col-md-3"></div>
+    <div class="col-md-3"></div>
+  </div><!-- row -->
+
   <div class="user col-md-4">
-    <p>ユーザ一覧</p>
+    <p>ユーザ一覧<br>～クリックで割り当てプロジェクトを表示～</p>
       <% @followed_user.each do |followed| %>
          <%= form_tag(assign_path, method: "get") do %>
           <%= submit_tag User.find(followed.follower_id).name, name: "user", class: "btn btn-md btn-primary" %>
@@ -13,19 +19,19 @@
 
   <div class="project col-md-8">
     <div class="assign row">
-      <p>割り当てプロジェクト</p>
+      <p>割り当てプロジェクト　～クリックで割り当て解除～</p>
       <% if @assign_projects %>
         <% @assign_projects.each do |u_p| %>
           <%= form_for( @user_projects.find_by_project_id(u_p.id) ) do |f| %>
             <%= f.hidden_field :id, value: u_p.id %>
-            <%= f.submit u_p.name, name: "delete_button", class: "btn btn-large btn-warning" %>
+            <%= f.submit u_p.name, name: "delete_button", class: "btn btn-large btn-warning", data: {confirm: "解除しますか？"} %>
           <% end %>
         <% end %>
       <% end %>
     </div>
 
     <div class="yet row">
-      <p>未割当</p>
+      <p>未割当プロジェクト　～クリックで割り当て～</p>
       <% if @yet_projects %>
         <% @yet_projects.each do |u_p| %>
           <%= form_for( @user_project ) do |f| %>

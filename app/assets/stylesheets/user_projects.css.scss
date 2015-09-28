@@ -9,6 +9,14 @@
   width:  100%;
   padding: 20px;
 
+  .title {
+    height: 50px;
+    margin: 20px 0 10px 0;
+    p {
+      font-size: 30px;
+    }
+  }
+
   .user {
     height: 100%;
     background-color: #AABFfA;
@@ -17,6 +25,9 @@
   .project {
     height: 100%;
     //background-color: #783589;
+    input {
+      margin: 5px;
+    }
     .assign {
       height: 50%;
       background-color: #FBAAfA;

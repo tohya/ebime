@@ -4,9 +4,17 @@
 
 $ ->
   size = $('#jissekis .date').length
-  width = $('#jissekis .date').outerWidth()
+  width = $('#jissekis .date').outerWidth() + $('#jissekis .space').outerWidth()
   $('#jissekis #door').width(size * width)
 
+$ ->
+  speed = 200;
+  $('#slider').mousewheel (event, mov) ->
+    $(@).scrollLeft $(@).scrollLeft() - mov * speed
+    return false;
+  
+###
+  
 $ ->
   $('.time-list button').click ->
     # parent = $('.time-list button').parent().parent().parent()
@@ -34,7 +42,9 @@ $ ->
     $('.time-list button').eq(button_index).removeAttr("btn-info").attr("class":"btn btn-warning btn-xs")
 
     $.post("/jisseki", month: month, day: day, project: project,time: time)
-    
+
+###
+
 ###
 
     $.ajax

@@ -4,5 +4,11 @@
 
 $ ->
   size = $('#kintais .date').length;
-  width = $('#kintais .date').outerWidth();
-  $('#kintais #door').width(size * width);
+  width = $('#kintais .date').outerWidth() + $('#kintais .space').outerWidth();
+  $('#kintais #door_k').width(size * width);
+
+  $ ->
+  speed = 200;
+  $('#slider').mousewheel (event, mov) ->
+    $(@).scrollLeft $(@).scrollLeft() - mov * speed
+    return false;

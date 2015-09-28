@@ -1,0 +1,6 @@
+<% if false %>
+$("#flash_notice").html("<%= escape_javascript(flash[:success])%>");
+$("#flash_notice").show(30);
+<% end %>
+$("#door_k").html("<%= escape_javascript( render(:partial => "kintai") ) %>");
+$("#alert").html("<%= escape_javascript( render(:partial => "shared/alert") ) %>");

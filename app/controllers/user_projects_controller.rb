@@ -35,9 +35,9 @@ class UserProjectsController < ApplicationController
   def create
     @user_project = UserProject.new(user_project_params)
     if @user_project.save
-      flash[:success] = "プロジェクトのひもづけが作成されました。"
+      flash[:success] = "プロジェクトが割り当てられました。"
     else
-      flash[:success] = "プロジェクトのひもづけに失敗しました。"
+      flash[:success] = "プロジェクトの割り当てに失敗しました。"
     end
       redirect_to assign_path
   end
@@ -49,7 +49,7 @@ class UserProjectsController < ApplicationController
     @user_project = UserProject.find(params[:id])
     if params[:delete_button]
       @user_project.destroy
-      flash[:success] = "プロジェクトのひもづけが削除されました。"
+      flash[:success] = "プロジェクトの割り当てが解除されました。"
        redirect_to assign_path
     end
   end

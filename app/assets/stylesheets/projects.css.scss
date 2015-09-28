@@ -9,21 +9,38 @@
   width:  100%;
   padding: 20px;
   
+  .title {
+    height: 50px;
+    margin: 20px 0 10px 0;
+    p {
+      font-size: 30px;
+    }
+  }
+  
   .index {
     height: 50%;
     background-color: #AABFfA;
     padding: 20px;
   }
+  
   .edit {
     height: 50%;
     padding: 20px;
     background-color: #FBAAfA;
+    input {
+      margin: 5px;
+    }
   }
+  
   .create {
     height: 50%;
     padding: 20px;
     background-color: #FBAA88;
+    input {
+      margin: 5px;
+    }
   }
+
   form {
     margin: 2px;
     float: left;

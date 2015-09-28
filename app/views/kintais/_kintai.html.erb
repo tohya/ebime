@@ -1,6 +1,128 @@
-<li>
-  <%= link_to kintai.id, kintai %>
-  <%= link_to kintai.user_id, kintai %>
-  <%= link_to kintai.date, kintai %>
-  <%= link_to kintai.time, kintai %>
-</li>
+<% (1..@target_month.end_of_month.day).each do |d| %>
+
+  <div class="date">
+
+    <div class="day">
+      <%= d %>日
+<% if false %>
+        <%= @target_month.month %>
+        <%= d %><br>
+        <%= @kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).start.hour %>
+        <%= @kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).start.min / 60.0 %><br>
+        <%= @kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).end.hour %>
+        <%= @kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).end.min / 60.0 %><br>
+        <%= work_time(@kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).start,@kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).end) %>
+<% end %>
+    </div><!-- day -->
+    <div class="time">
+      始業
+      <% if @kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).present? &&
+            @kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).start.present? %>
+        <%= @kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).start.strftime("%H:%M") %>
+      <% end %>
+    </div><!-- time -->
+
+    <div class="time-list">
+      <% (8..21).reverse_each do |t| %>
+
+      <% if @kintais && @kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")) && @kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).start && (t+0.5) == @kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).start.hour + @kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).start.min / 60.0 %>
+          <div class="tll btn btn-default btn-xs">
+            <%= link_to t+0.0, remote: true, method: :post, 
+                               month: @target_month.month, day: d, start_time: t+0.0 %>
+          </div>
+          <div class="tlr btn btn-warning btn-xs">
+            <%= link_to t+0.5, remote: true, method: :post, 
+                               month: @target_month.month, day: d, start_time: t+0.5 %>
+          </div>
+        <% elsif @kintais && @kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")) && @kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).start && (t+0.0) == @kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).start.hour + @kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).start.min / 60.0 %>
+          <div class="tll btn btn-warning btn-xs">
+            <%= link_to t+0.0, remote: true, method: :post, 
+                               month: @target_month.month, day: d, start_time: t+0.0 %>
+          </div>
+          <div class="tlr btn btn-default btn-xs">
+            <%= link_to t+0.5, remote: true, method: :post, 
+                               month: @target_month.month, day: d, start_time: t+0.5 %>
+          </div>
+        <% else %>
+          <div class="tll btn btn-default btn-xs">
+            <%= link_to t+0.0, remote: true, method: :post, 
+                               month: @target_month.month, day: d, start_time: t+0.0 %>
+          </div>
+          <div class="tlr btn btn-default btn-xs">
+            <%= link_to t+0.5, remote: true, method: :post, 
+                               month: @target_month.month, day: d, start_time: t+0.5 %>
+          </div>
+
+        <% end %>
+      <% end %>
+    </div><!-- time-list -->
+    <div class="project">
+      勤怠
+      <% if @kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).present? &&
+@kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).start.present? &&
+@kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).end.present? %>
+        <%= work_time(@kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).start,@kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).end) %>
+      h
+      <% end %>
+    </div><!-- project -->
+  </div><!-- date -->
+
+  <div class="date">
+
+    <div class="day">
+      <%= d %>日
+    </div><!-- day -->
+    <div class="time">
+      終業
+      <% if @kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).present? &&
+@kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).end.present? %>
+      <%= @kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).end.strftime("%H:%M") %>
+      <% end %>
+    </div><!-- time -->
+
+    <div class="time-list">
+      <% (8..21).reverse_each do |t| %>
+
+      <% if @kintais && @kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")) && @kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).end && (t+0.5) == @kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).end.hour + @kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).end.min / 60.0 %>
+          <div class="tll btn btn-default btn-xs">
+            <%= link_to t+0.0, remote: true, method: :post, 
+                               month: @target_month.month, day: d, end_time: t+0.0 %>
+          </div>
+          <div class="tlr btn btn-warning btn-xs">
+            <%= link_to t+0.5, remote: true, method: :post, 
+                               month: @target_month.month, day: d, end_time: t+0.5 %>
+          </div>
+      <% elsif @kintais && @kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")) && @kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).end && (t+0.0) == @kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).end.hour + @kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).end.min / 60.0 %>
+          <div class="tll btn btn-warning btn-xs">
+            <%= link_to t+0.0, remote: true, method: :post, 
+                               month: @target_month.month, day: d, end_time: t+0.0 %>
+          </div>
+          <div class="tlr btn btn-default btn-xs">
+            <%= link_to t+0.5, remote: true, method: :post, 
+                               month: @target_month.month, day: d, end_time: t+0.5 %>
+          </div>
+        <% else %>
+          <div class="tll btn btn-default btn-xs">
+            <%= link_to t+0.0, remote: true, method: :post,
+                               month: @target_month.month, day: d, end_time: t+0.0 %>
+          </div>
+          <div class="tlr btn btn-default btn-xs">
+            <%= link_to t+0.5, remote: true, method: :post, 
+                               month: @target_month.month, day: d, end_time: t+0.5 %>
+          </div>
+        <% end %>
+      <% end %>
+
+    </div><!-- time-list -->
+    <div class="project">
+      勤怠
+      <% if @kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).present? &&
+@kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).start.present? &&
+@kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).end.present? %>
+        <%= work_time(@kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).start,@kintais.find_by_date(Time.parse("#{@target_month.month}/#{d}")).end) %>
+      h
+      <% end %>
+    </div><!-- projecct -->
+  </div><!-- date -->
+  <div class="space"></div><!-- space -->
+<% end %>

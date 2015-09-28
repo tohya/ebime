@@ -1,8 +1,15 @@
-<% provide(:title, 'プロジェクト一覧') %>
+<% provide(:title, 'プロジェクト管理') %>
 <div id="projects">
-  
+
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="title col-md-3"><p>プロジェクト管理</p></div>
+    <div class="col-md-3"></div>
+    <div class="col-md-3"></div>
+  </div><!-- row -->
+
   <div class="index col-md-6">
-    <p>一覧</p>
+    <p>プロジェクト一覧　～クリックで詳細（更新・削除フォーム）表示～</p>
     <% @projects.each do |p| %>
       <%= form_tag(project_path, method: "get") do %>
         <%= submit_tag p.name, name: "project", class: "btn btn-md btn-primary" %>
@@ -11,22 +18,22 @@
   </div>
 
   <div class="edit col-md-6">
-    <p>更新</p>
+    <p>プロジェクト詳細（更新・削除）</p>
     <% if @project %>
       <%= form_for(@project) do |f| %>
         <%= f.hidden_field :id, value: @project.id %>
         <%= f.text_field :name %><br>
-        <%= f.submit "更新", name: "update_button", class: "btn btn-large btn-primary" %>
-        <%= f.submit "削除", name: "delete_button", class: "btn btn-large btn-warning" %>
+        <%= f.submit "更新", name: "update_button", class: "btn btn-large btn-primary"%>
+        <%= f.submit "削除", name: "delete_button", class: "btn btn-large btn-warning", data: {confirm: "削除しますか？"} %>
       <% end %>
     <% end %>
   </div>
 
   <div class="create col-md-12">
-    <p>作成</p>
+    <p>プロジェクト新規作成</p>
       <%= form_for(@new_project) do |f| %>
         <%= f.label "プロジェクト名" %>
-        <%= f.text_field :name %><br>
+        <%= f.text_field :name %>
         <%= f.submit "新規作成", class: "btn btn-large btn-primary" %>
       <% end %>    
   </div>

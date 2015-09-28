@@ -44,6 +44,7 @@ def make_users
 end
 
 def make_relationships  
+  @nkomatsu.follow!(@nkomatsu)
   @ayazawa.follow!(@nkomatsu)
   @ytakagi.follow!(@nkomatsu)
   @nosaki.follow!(@nkomatsu)
@@ -82,17 +83,17 @@ end
 
 def make_kintais
   Kintai.create!(user_id: @nosaki.id, date: "2015-09-01", start:"09:00:00", end:"17:30:00")
-  Kintai.create!(user_id: @nosaki.id, date: "2015-09-02", start:"09:00:00", end:"17:30:00")
+  Kintai.create!(user_id: @nosaki.id, date: "2015-09-02", start:"09:00:00", end:"18:30:00")
   Kintai.create!(user_id: @nosaki.id, date: "2015-09-03", start:"09:00:00", end:"17:30:00")
   Kintai.create!(user_id: @nosaki.id, date: "2015-09-04", start:"09:00:00", end:"17:30:00")
-  Kintai.create!(user_id: @nosaki.id, date: "2015-09-05", start:"09:00:00", end:"17:30:00")
+  Kintai.create!(user_id: @nosaki.id, date: "2015-09-05", start:"09:00:00", end:"19:30:00")
   Kintai.create!(user_id: @nosaki.id, date: "2015-09-06", start:"09:00:00", end:"17:30:00")
-  Kintai.create!(user_id: @nosaki.id, date: "2015-09-07", start:"09:00:00", end:"17:30:00")
-  Kintai.create!(user_id: @nosaki.id, date: "2015-09-08", start:"09:00:00", end:"17:30:00")
+  Kintai.create!(user_id: @nosaki.id, date: "2015-09-07", start:"09:00:00", end:"18:00:00")
+  Kintai.create!(user_id: @nosaki.id, date: "2015-09-08", start:"09:00:00", end:"18:00:00")
   Kintai.create!(user_id: @nosaki.id, date: "2015-09-09", start:"09:00:00", end:"17:30:00")
   Kintai.create!(user_id: @nosaki.id, date: "2015-09-10", start:"09:00:00", end:"17:30:00")
-  Kintai.create!(user_id: @nosaki.id, date: "2015-09-11", start:"09:00:00", end:"17:30:00")
-  Kintai.create!(user_id: @nosaki.id, date: "2015-09-12", start:"09:00:00", end:"17:30:00")
+  Kintai.create!(user_id: @nosaki.id, date: "2015-09-11", start:"09:00:00", end:"19:30:00")
+  Kintai.create!(user_id: @nosaki.id, date: "2015-09-12", start:"09:00:00", end:"19:30:00")
   Kintai.create!(user_id: @nosaki.id, date: "2015-09-13", start:"09:00:00", end:"17:30:00")
   Kintai.create!(user_id: @nosaki.id, date: "2015-09-14", start:"09:00:00", end:"17:30:00")
   Kintai.create!(user_id: @nosaki.id, date: "2015-09-15", start:"09:00:00", end:"17:30:00")

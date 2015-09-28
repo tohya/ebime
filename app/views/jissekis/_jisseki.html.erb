@@ -7,14 +7,38 @@
       <div class="time-list">
         <% (0..14).reverse_each do |t| %>
           <% if (t+0.5) == @sum_by_day[p][d] %>
-        <div class="tll btn btn-default btn-xs"><%= link_to t+0.0, remote: true, method: :post, month: @target_month.month, day: d, project: @user_project[p].project.name, time: t+0.0 %></div>
-            <div class="tlr btn btn-warning btn-xs"><%= link_to t+0.5, remote: true, method: :post, month: @target_month.month, day: d, project: @user_project[p].project.name, time: t+0.5 %></div>
+            <div class="tll btn btn-default btn-xs">
+              <%= link_to t+0.0, remote: true, method: :post, 
+                                 month: @target_month.month, day: d, 
+                                 project: @user_project[p].project.name, time: t+0.0 %>
+            </div>
+            <div class="tlr btn btn-warning btn-xs">
+              <%= link_to t+0.5, remote: true, method: :post, 
+                                 month: @target_month.month, day: d, 
+                                 project: @user_project[p].project.name, time: t+0.5 %>
+            </div>
           <% elsif t == @sum_by_day[p][d] %>
-            <div class="tll btn btn-warning btn-xs"><%= link_to t+0.0, remote: true, method: :post, month: @target_month.month, day: d, project: @user_project[p].project.name, time: t+0.0 %></div>
-            <div class="tlr btn btn-default btn-xs"><%= link_to t+0.5, remote: true, method: :post, month: @target_month.month, day: d, project: @user_project[p].project.name, time: t+0.5 %></div>
+            <div class="tll btn btn-warning btn-xs">
+              <%= link_to t+0.0, remote: true, method: :post, 
+                                 month: @target_month.month, day: d, 
+                                 project: @user_project[p].project.name, time: t+0.0 %>
+            </div>
+            <div class="tlr btn btn-default btn-xs">
+              <%= link_to t+0.5, remote: true, method: :post, 
+                                 month: @target_month.month, day: d,
+                                 project: @user_project[p].project.name, time: t+0.5 %>
+            </div>
           <% else %>
-            <div class="tll btn btn-default btn-xs"><%= link_to t+0.0, remote: true, method: :post, month: @target_month.month, day: d, project: @user_project[p].project.name, time: t+0.0 %></div>
-            <div class="tlr btn btn-default btn-xs"><%= link_to t+0.5, remote: true, method: :post, month: @target_month.month, day: d, project: @user_project[p].project.name, time: t+0.5 %></div>
+            <div class="tll btn btn-default btn-xs">
+              <%= link_to t+0.0, remote: true, method: :post, 
+                                 month: @target_month.month, day: d, 
+                                 project: @user_project[p].project.name, time: t+0.0 %>
+            </div>
+            <div class="tlr btn btn-default btn-xs">
+              <%= link_to t+0.5, remote: true, method: :post, 
+                                 month: @target_month.month, day: d, 
+                                 project: @user_project[p].project.name, time: t+0.5 %>
+            </div>
             <% if false %>
               <div class="tll"><button class="btn btn-info btn-xs" type="button"><%= t+0.0 %></button></div>
               <div class="tlr"><button class="btn btn-info btn-xs" type="button"><%= t+0.5 %></button></div>
@@ -22,6 +46,13 @@
           <% end %>
         <% end %>
       </div><!-- time-list -->
+      <div class="time">
+        実績<%= sum_as_day(@sum_by_day,d) %>h
+      </div><!-- time -->
+      <div class="project">
+        勤怠<%= find_kintai_time(@current_user.id, @target_month.month, d) %>h
+      </div><!-- time -->
     </div><!-- date -->
   <% end %>
+  <div class="space"></div><!-- space -->
 <% end %>

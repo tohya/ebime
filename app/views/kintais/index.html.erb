@@ -3,71 +3,57 @@
 <div id="kintais">
   <div class="row">
     <div class="col-md-3"></div>
-    <div class="col-md-3">勤怠管理</div>
+    <div class="title col-md-3"><p>勤怠管理</p></div>
     <div id="month" class="col-md-3">
       <ul class="pagination">
-        <li class="disabled"><a href="#" aria-label="Previous"><div aria-hidden="true" class="aquo">&laquo;</div></a></li>
-        <li class="disabled"><a href="#" ><%= @target_month.month %>月</a></li>
-        <li class="disabled"><a href="#" aria-label="Previous"><div aria-hidden="true" class="aquo">&raquo;</div></a></li>
+        <li class="disabled">
+          <a href="kintai?month=<%= @target_month.month-1 %>" aria-label="Previous">
+            <div aria-hidden="true" class="aquo">&laquo;<%= @target_month.month-1 %>月</div>
+          </a>
+        </li>
+        <li class="disabled">
+          <a href="#" id="target-month">
+            <%= @target_month.month %>月
+          </a>
+        </li>
+        <li class="disabled">
+          <a href="kintai?month=<%= @target_month.month+1 %>" aria-label="Previous">
+            <div aria-hidden="true" class="aquo"><%= @target_month.month+1 %>月&raquo;</div>
+          </a>
+        </li>
       </ul>
     </div><!-- #month -->
-    <div class="col-md-3">合計<%= @sum_by_day[0][:time] %>h</div> <!-- tmp -->
+    <div class="col-md-3"></div>
   </div><!-- row -->
+<% if false %>
+  <div class="row">
+    <% @kintais.each do |k| %>
+      <%= k.date.day %>
+      <%= k.start.hour + k.start.min/60.0 %>
+      <%= k.end.hour + k.end.min/60.0 %>
+      <%= (k.end.hour + k.end.min/60.0) - (k.start.hour + k.start.min/60.0) %>
+      <%= work_time(k.start,k.end) %>
+    <br>
+    <% end %>
+  </div><!-- row -->
+  <div class="row">
+    <% @sum_by_day.each_with_index do |s,i| %>
+      <%= i %>
+      <%= @sum_by_day[i][:start] %>
+      <%= @sum_by_day[i][:end] %>
+      <%= @sum_by_day[i][:time] %>
+    <br>
+    <% end %>
+  </div><!-- row -->
+<% end %>
   <div class="row">
     <div class="create">
       <div id="slider">
-        <div id="door">
-          <% (1..@target_month.end_of_month.day).each do |d| %>
-            <div class="date">
-              <div class="day">
-                <%= d %>日
-                <% if @sum_by_day[d][:time].present? %>
-                  <%= Time.at(@sum_by_day[d][:time]*60*60).strftime("%H:%M") %>
-                <% end %>
-              </div><!-- day -->
-              <div class="time">
-                始業
-                <% if @sum_by_day[d][:start].present? %>
-                  <%= Time.at(@sum_by_day[d][:start]*60*60).strftime("%H:%M") %>
-                <% end %>
-              </div><!-- time -->
-              <div class="time-list">
-                <% (8..21).reverse_each do |t| %>
-                  <div class="tlr"><button class="btn btn-info btn-xs" type="button">
-                    <%= t+0.5 %>
-                  </button></div>
-                  <div class="tll"><button class="btn btn-info btn-xs" type="button">
-                    <%= t+0.0 %>
-                  </button></div>
-                <% end %>
-              </div><!-- time-list -->
-            </div><!-- date -->
-            <div class="date">
-              <div class="day">
-                <%= d %>日
-                <% if @sum_by_day[d][:time].present? %>
-                  <%= Time.at(@sum_by_day[d][:time]*60*60).strftime("%H:%M") %>
-                <% end %>
-              </div><!-- day -->
-              <div class="time">
-                終業
-                <% if @sum_by_day[d][:end].present? %>
-                  <%= Time.at(@sum_by_day[d][:end]*60*60).strftime("%H:%M") %>
-                <% end %>
-              </div><!-- time -->
-              <div class="time-list">
-                <% (8..21).reverse_each do |t| %>
-                  <div class="tlr"><button class="btn btn-info btn-xs" type="button">
-                    <%= t+0.5 %>
-                  </button></div>
-                  <div class="tll"><button class="btn btn-info btn-xs" type="button">
-                    <%= t+0.0 %>
-                  </button></div>
-                <% end %>
-              </div><!-- time-list -->
-            </div><!-- date -->
-          <% end %>
-        </div><!-- #door -->
+        <%= form_tag controller: "kintais", action: "index", method: :post, remote: true do %>
+          <div id="door_k">
+            <%= render partial: 'kintai' %>
+          </div><!-- #door -->
+        <% end %>
       </div><!-- #slider -->
     </div><!-- create -->
   </div><!-- row -->

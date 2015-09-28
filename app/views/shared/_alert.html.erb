@@ -1,0 +1,8 @@
+<% alert = alert(@current_user).join(", ") %>
+<% if alert.blank? %>
+勤怠と実績の相違はありません。
+<% else %>
+以下の勤怠に実績との相違があります。<br>
+修正してください。<br>
+<%= alert %>
+<% end %>
