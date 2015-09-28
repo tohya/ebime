@@ -78,10 +78,10 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # 
-  config.serve_static_assets = false
+  config.serve_static_assets = true
   config.assets.compress = true
-  config.assets.compile = false #上の方に有
-  config.assets.digest = false #上の方に有
+  config.assets.compile = true #上の方に有
+  config.assets.digest = true #上の方に有
   config.static_cache_control = "public, max-age=#{1.day}"
   
 end
