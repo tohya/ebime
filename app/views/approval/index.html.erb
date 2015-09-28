@@ -1,0 +1,69 @@
+<% provide(:title, '承認') %>
+
+<div id="approval">
+
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="title col-md-3"><p>承認</p></div>
+    <div class="col-md-3"></div>
+    <div class="col-md-3"></div>
+  </div><!-- row -->
+
+  <div class="row">
+    <%= form_tag(approval_path, method: "get") do %>
+      <div class="user col-md-4">
+        <p>ユーザ選択</p>
+        <%= select_tag 'user', options_for_select(@user_name) %>        
+      </div>
+      <div class="month col-md-4">
+        <p>対象年月</p>
+        <%= select_tag 'year',  options_for_select(@target_year) %>
+        <%= select_tag 'month', options_for_select(@target_month) %>
+      </div>
+      <div class="approval col-md-4">
+        <p>実績検索</p>
+        <%= submit_tag "検索", name: "jisseki", class: "btn btn-lg btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="jisseki">
+      <p>実績一覧</p>
+      
+      <% if @jisseki_param.present? %>
+        <div class="param">
+          <p>ユーザ ： <%= @jisseki_param[0] %></p>
+          <p>選択月 ： <%= @jisseki_param[1].strftime("%Y/%m") %></p>
+        </div>
+
+        <% if @jisseki.blank? %>
+          <div class="none"><p>選択月には実績が存在しません。</p></div>
+
+        <% else %>
+          <div class="approval_remand">
+              <%= form_tag(approval_path, method: "post") do %>
+              <%= hidden_field :user_, value: @jisseki_param[0] %>
+              <%= hidden_field :month_, value: @jisseki_param[1] %>
+              <%= submit_tag "承認", name: "approval_", class: "btn btn-lg btn-primary" %>
+              <%= submit_tag "差戻", name: "remand_", class: "btn btn-lg btn-warning" %>
+            <% end %>
+          </div>
+
+            <div id="slider">
+              <div id="door">
+                <% @jisseki.each do |j| %>
+                  <div class="date">
+                    <div class="day"><%= j.date.strftime("%m/%d") %></div>
+                    <div class="project"><%= Project.find(UserProject.find(j.user_project_id).project_id).name %></div>
+                    <div class="time"><%= j.time.to_s %>h</div>
+                  </div>
+                <% end %>
+              </div><!-- #door -->
+            </div><!-- #slider -->
+          <% end %>
+        <% end %>
+      </div><!-- jisseki -->
+    </div><!-- row -->
+
+</div>

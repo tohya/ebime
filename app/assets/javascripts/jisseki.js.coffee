@@ -6,12 +6,6 @@ $ ->
   size = $('#jissekis .date').length
   width = $('#jissekis .date').outerWidth() + $('#jissekis .space').outerWidth()
   $('#jissekis #door').width(size * width)
-
-$ ->
-  speed = 200;
-  $('#slider').mousewheel (event, mov) ->
-    $(@).scrollLeft $(@).scrollLeft() - mov * speed
-    return false;
   
 ###
   

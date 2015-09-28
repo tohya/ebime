@@ -12,6 +12,8 @@ Ebime::Application.routes.draw do
   resources :projects,      only: [:create]
   match '/assign',  to: 'user_projects#index',  via: 'get',    as: 'assign'
   resources :user_projects,      only: [:create, :update]  
+  match '/approval',to: 'approval#index',       via: 'get',    as: 'approval'
+  match '/approval',to: 'approval#index',       via: 'post'
   # match '/approval', to: 's#index',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete', as: 'signout'
   #resources :users

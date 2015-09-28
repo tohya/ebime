@@ -1,0 +1,119 @@
+// Place all the styles related to the Approval controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#approval {
+
+  height: 100%;
+  width:  100%;
+  padding: 20px;
+
+  form {
+    //height: 100%;
+    //width: 100%;    
+    //margin: 2px;
+    //float: left;
+  }
+  
+  .title {
+    height: 50px;
+    margin: 20px 0 10px 0;
+    p {
+      font-size: 30px;
+    }
+  }
+
+  .user {
+    height: 150px;
+    background-color: #FBAA88;
+    padding: 20px;
+  }
+
+  .month {
+    height: 150px;
+    background-color: rgba(233,205,76,1); //KARIYASU
+    padding: 20px;
+  }
+
+  .approval {
+    height: 150px;
+    padding: 20px;
+    background-color: #FBAAfA;
+    input {
+      margin: 5px;
+    }
+  }
+
+  .jisseki {
+    height: 400px;
+    background-color: #AABFfA;
+    padding: 20px;
+  }
+
+  .param {
+    float: left;
+  }
+  
+  .none {
+    clear: both;
+  }
+  
+  .approval_remand {
+    float: left;
+    margin-left: 500px;
+    input {
+      margin: 0 30px;
+    }
+  }
+  
+  #slider {
+    //background-color: rgba(220,184,121,1); //SHIROTSURUBAMI
+    background-color: rgba(93,172,129,1); //WAKATAKE
+    height: 200px;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin: 20px 0;
+  }
+
+  #door {
+    height: 200px;
+    width: 10000px;
+    //min-width: 155rem;
+  }
+
+  .date {
+    height: 100%;
+    width: 80px;
+    float: left;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 15px;
+
+    .day {
+      width: 100%;
+      height: 60px;
+      background-color: rgba(225,107,140,1); //KOHBAI
+      clear: both;
+      padding: 20px;
+    }
+
+    .project {
+      width: 100%;
+      height: 60px;
+      background-color: rgba(120,194,196,1); //BYAKUGUN
+      clear: both;
+      padding: 20px;
+    }
+
+    .time {
+      width: 100%;
+      height: 60px;
+      //background-color: rgba(208,90,110,1); //IMAYOH
+      background-color: rgba(233,205,76,1); //KARIYASU
+      clear: both;
+      padding: 20px;
+    }
+  }
+
+}
